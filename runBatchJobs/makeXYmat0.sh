@@ -17,10 +17,10 @@ YY1Hepg2 YY1K562 ZBTB33Hepg2 ZBTB33K562 ZBTB7AHepg2 ZBTB7AK562 \
 ZNF143K562 ZNF274K562 ZNF384K562)
 
 ##directory to put X Y files in
-xdir=/data/cgsb/bonneau/xchen/mocha/xdir
-ydir=/data/cgsb/bonneau/xchen/mocha/ydir
+xdir=/data/cgsb/bonneau/xchen/mocap/xdir
+ydir=/data/cgsb/bonneau/xchen/mocap/ydir
 ##directory to put pbs scripts in
-pbsdir=/data/cgsb/bonneau/xchen/mocha/pbsdir
+pbsdir=/data/cgsb/bonneau/xchen/mocap/pbsdir
 
 for i in ${tfctv[@]}
 do

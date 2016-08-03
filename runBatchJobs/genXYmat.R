@@ -1,4 +1,4 @@
-library(Mocha)##this will automatically load the example datasets to calculate X and Ys with
+library(Mocap)##this will automatically load the example datasets to calculate X and Ys with
 
 ##command line prompts
 print.usage <- function(){
@@ -40,16 +40,16 @@ dx <- add.int(d2$data[,d1$fv+3])[,d1$fv.i]
 ##cross-sample predictions
 aupr.x <- get.pr.roc(dx,paste(tfct,ptfct),d1$slr.model,plot=FALSE)
 
-##Mocha predictions
-pred.mocha <- d2$data$acces.score*d2$data$acces
+##MocapG predictions
+pred.mocap <- d2$data$acces.score*d2$data$acces
 gs <- d2$data$gs
-aupr.mocha <- calc.aupr(pred.mocha,gs)
+aupr.mocap <- calc.aupr(pred.mocap,gs)
 
-##MochaS predictions
+##MocapS predictions
 d2.i <- add.int(d2$data[,d2$fv+3])[,d2$fv.i]
 aupr.res <- get.pr.roc(d2.i,ptfct,d2$slr.model,plot=FALSE)
 
-ys <- as.data.frame(c(aupr.res,aupr.x,aupr.mocha$AUPR,aupr.mocha$rec10,aupr.mocha$AUROC,aupr.mocha$fpr1))
+ys <- as.data.frame(c(aupr.res,aupr.x,aupr.mocap$AUPR,aupr.mocap$rec10,aupr.mocap$AUROC,aupr.mocap$fpr1))
 colnames(ys) <- paste(tfct,ptfct,sep="_")
 write.table(ys,file=paste(ydir,"/",tfct,ptfct,"Y.txt",sep=""),row.names = FALSE,col.names = TRUE)
 

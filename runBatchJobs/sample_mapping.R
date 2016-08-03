@@ -1,4 +1,4 @@
-library(Mocha)
+library(Mocap)
 
 ##command line prompts
 print.usage <- function(){
@@ -35,8 +35,8 @@ if (length(args) != 14){
 	verbose <- as.logical(args[14])
 }
 
-#for (gamma in c(1.25,1.27,1.3,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.38,1.39,1.4,1.42,1.45)){
-for (gamma in c(1.29,1.3,1.31,1.39,1.4,1.41,1.42)){
-res <- sample.mapping(xdir,ydir,gamma,ind.test,cores,exp,verbose)
 
-print(res)}
+for (gamma in c(1.29,1.3,1.31,1.39,1.4,1.41,1.42)){
+	res <- sample.mapping(xdir,ydir,gamma,ind.test,cores,exp,verbose)
+	print(res)
+}
