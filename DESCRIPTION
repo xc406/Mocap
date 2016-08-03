@@ -1,0 +1,18 @@
+Package: Mocap
+Title: Transcription factor binding site inference using motif and chromatin
+    accessibility data
+Version: 0.0.0.9000
+Authors@R: c(person("Xi", "Chen", email = "xchen@nyu.edu", role = c("aut", "cre")),
+	person("Bowen", "Yu", email = "yubowenok@gmail.com", role = c("aut")),
+	person("Nicholas", "Carriero", email = "njcarriero@gmail.com", role = c("aut")),
+	person("Claudio", "Silva", email = "csilva@nyu.edu", role = c("aut")),
+	person("Richard", "Bonneau", email = "rb133@nyu.edu", role = c("aut")))
+Description: Sparse logistic regression classifiers to infer cell type-
+    specific transcription factor binding sites using motif-associated
+    genomic features.
+Depends:
+    R (>= 3.2.2)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1.9000
