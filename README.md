@@ -5,7 +5,7 @@ This document explains how to use the package Mocap to infer transcription facto
 
 ```{r echo=FALSE}
 library(devtools)
-install_github("xc406/mocap/Mocap")
+install_github("xc406/Mocap")
 library(Mocap)
 ```
 ## Example Usage
