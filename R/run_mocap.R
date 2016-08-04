@@ -20,7 +20,7 @@ getparams <- function(params){
 
 #'generate motif/genomic region-assoicated accessibility scores
 #'
-#' \code{run.Mocap} takes as input a BED-4 formatted data frame and \code{em}
+#' \code{run.MocapG} takes as input a BED-4 formatted data frame and \code{em}
 #'returned parameter set and output a cutoff value, a vector of binary classifications of 
 #'genomic (motif) regions and a vector of log-likelihood accessibility scores.
 #'  
@@ -30,7 +30,7 @@ getparams <- function(params){
 #'a numeric vector of binary accessibility classifications and
 #'a numeric vector of accessibility scores
 #'@export
-run.Mocap <- function(bedCount,params){
+run.MocapG <- function(bedCount,params){
 	params.list <- getparams(params)
 	count.seq <- seq(0,19999)
 	pred.close <- dnbinom(count.seq,mu=params.list$mu1.est,size=params.list$theta1.est)

@@ -201,8 +201,8 @@ res.mocapG <- run.MocapG(bedCount,params)
 
     ##making predictions
     p <- predict(d1$slr.model,s,proba=FALSE,decisionValues=TRUE)
-    pred <- (-1)*p$decisionValues[,1]
-    z.scores <- (pred-mean(pred))/sd(pred)
+    res.mocapX <- (-1)*p$decisionValues[,1]
+    z.scores <- (res.mocapX-mean(res.mocapX))/sd(res.mocapX)
 
     ##save predictions in a bed file, option to convert posterior scores to z scores
     write.table(cbind(d2$data[,c(1,2,3)],z.scores),file=paste0("~/results/",tfct1,tfct2,"MocapX.bed"),
