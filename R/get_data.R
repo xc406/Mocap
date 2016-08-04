@@ -23,16 +23,16 @@ get.all.data <- function(path,chrom,tf,ct,n,params,seqlen=24,coords=FALSE,chip=F
         cons <- read.table(gzfile(paste("consMotifs/",tf,chrom,"cons.txt.gz",sep="")), header=F)
         fps <- read.table(gzfile(paste("fpsMotifs/",tf,ct,chrom,"fps.txt.gz",sep="")), header=F)
 	bedCount <- cbind(motif[,c(1,2,3)],fps[,1])
-	mocap <- run.Mocap(bedCount,params)
+	mocapG <- run.MocapG(bedCount,params)
         target <- read.table(gzfile(paste("targetMotifs/",tf,chrom,"target.txt.gz",sep="")), header=F)
 
         if(coords){
-                d <- cbind(motif[,c(1,2,3,5)],gc[,c(4,7,11,5,10)],mocap$acces,fps[,5],map,target[,2],cons,mocap$acces.score)
+                d <- cbind(motif[,c(1,2,3,5)],gc[,c(4,7,11,5,10)],mocapG$acces,fps[,5],map,target[,2],cons,mocapG$acces.score)
                 colnames(d) <- c("chr","start","end","motif.score","repeats","gc.w1","gc.w4",
 			"cpg.w1","cpg.wr4","acces","footprint.score","map","dtss","pc100v",
 			"pc46v","pc46m","pc46p","pp100v","pp46v","pp46m","pp46p","acces.score")
         }else{
-                d <- cbind(motif[,5],gc[,c(4,7,11,5,10)],mocap$acces,fps[,5],map,target[,2],cons,mocap$acces.score)
+                d <- cbind(motif[,5],gc[,c(4,7,11,5,10)],mocapG$acces,fps[,5],map,target[,2],cons,mocapG$acces.score)
                 colnames(d) <- c("motif.score","repeats","gc.w1","gc.w4","cpg.w1","cpg.wr4","acces",
                         "footprint.score","map","dtss","pc100v","pc46v","pc46m","pc46p","pp100v",
 			"pp46v","pp46m","pp46p","acces.score")
