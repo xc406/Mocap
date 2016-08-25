@@ -32,14 +32,14 @@ getparams <- function(params){
 #'@export
 run.MocapG <- function(bedCount,params){
 	params.list <- getparams(params)
-	count.seq <- seq(0,19999)
+	count.seq <- seq(0,range(bedCount[,4])[2])
 	pred.close <- dnbinom(count.seq,mu=params.list$mu1.est,size=params.list$theta1.est)
 	pred.open <- dnbinom(count.seq,mu=params.list$mu2.est,size=params.list$theta2.est)
 	ll <- log(((1-params.list$prob1.est)*pred.open)/(params.list$prob1.est*pred.close))
 	d <- cbind(count.seq,ll)
 
 	for (i in 2:length(d[,2])){
-	        if (d[i,2] > 0.69 && d[i,2] > d[i-1,2]){
+	        if (d[i,2] > log(2) && d[i,2] > d[i-1,2]){
 	                cutoff <- d[i,1]
 	             	names(cutoff) <- NULL
 			break
